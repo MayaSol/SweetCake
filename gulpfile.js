@@ -16,10 +16,15 @@ var pump = require("pump");
 var csscomb = require("gulp-csscomb");
 var gnf = require('gulp-npm-files');
 var svgstore = require("gulp-svgstore");
+var cheerio = require('gulp-cheerio');
 
+const config = {
+  build: "/var/www/sweetcake/wp-content/themes/sweetcake/",
+  templates: ["", "inc/", "template-parts/"]
+}
 
 gulp.task("clean", function() {
-  return del("/var/www/floorball/wp-content/themes/floorball/*",{force:true});
+  return del(config.build + "*",{force:true});
 });
 
 gulp.task("copy", function() {
@@ -37,23 +42,28 @@ gulp.task("copy", function() {
   ], {
     base: "."
   })
-  .pipe(gulp.dest("/var/www/floorball/wp-content/themes/floorball/"));
+  .pipe(gulp.dest(config.build));
 });
 
 gulp.task("copyNpmDependenciesOnly", function() {
   gulp.src(gnf(), {base:'./'})
-  .pipe(gulp.dest('/var/www/floorball/wp-content/themes/floorball/'));
+  .pipe(gulp.dest(config.build));
 });
 
 gulp.task("svgsprite", function() {
   var sources = gulp
-  .src("img/icons/*.svg")
+  .src("img/svg-sprite/*.svg")
   .pipe(svgstore({
       inlineSvg: true
     }))
-
-  .pipe(rename("svg-icons.svg"))
-  .pipe(gulp.dest("/var/www/floorball/wp-content/themes/floorball/img/"));
+  .pipe(cheerio({
+      run: function ($) {
+          $('svg').addClass('svg-sprite');
+      },
+      parserOptions: { xmlMode: true }
+  }))
+  .pipe(rename("svg-sprite.svg"))
+  .pipe(gulp.dest(config.build + "img/svg-sprite"));
 });
 
 
@@ -69,7 +79,7 @@ gulp.task("style", function() {
       ]})
     ]))
     .pipe(csscomb())
-    .pipe(gulp.dest("/var/www/floorball/wp-content/themes/floorball"))
+    .pipe(gulp.dest(config.build))
 //    .pipe(minify())
 //    .pipe(rename("style.min.css"))
 //    .pipe(gulp.dest("build/css"))
@@ -100,7 +110,7 @@ gulp.task("build", function(fn) {
   run("clean",
       "copy",
       "copyNpmDependenciesOnly",
-//      "svgsprite",
+      "svgsprite",
       "style",
 //      "images",
 //      "compress",
@@ -108,8 +118,10 @@ gulp.task("build", function(fn) {
 });
 
 gulp.task("php:copy", function(){
-  return gulp.src("*.php")
-  .pipe(gulp.dest("/var/www/floorball/wp-content/themes/floorball"));
+  config.templates.map(function(folder) {
+    return gulp.src(folder + "*.php")
+    .pipe(gulp.dest(config.build + folder));
+  });
 });
 
 /*gulp.task("php:update", ["php:copy"], function(done){
@@ -119,7 +131,7 @@ gulp.task("php:copy", function(){
 
 gulp.task("serve", function() {
 /*  server.init({
-    server: "floorball.ru",
+    server: "sweetcake.ru",
     notify: false,
     open: true,
     cors: true,
@@ -127,5 +139,9 @@ gulp.task("serve", function() {
   });*/
 
   gulp.watch("sass/**/*.{scss,sass}", ["style"]);
-  gulp.watch("*.php", ["php:copy"]);
+  gulp.watch(
+   config.templates.map(function(folder){
+    return folder + "*.php";
+   }),
+   ["php:copy"]);
 });

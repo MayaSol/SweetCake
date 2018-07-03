@@ -4,14 +4,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package floorball
+ * @package sweetcake
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
+    return;
 }
 ?>
 
 <aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+    <?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->
