@@ -22,6 +22,10 @@ get_header();
           get_template_part( 'template-parts/slider-main');
 
           get_template_part( 'template-parts/services');
+
+          get_template_part( 'template-parts/testimonials');
+
+          get_template_part( 'template-parts/works');
         ?>
 
         <?php

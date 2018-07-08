@@ -146,3 +146,56 @@ if ( ! function_exists( 'sweetcake_post_thumbnail' ) ) :
         endif; // End is_singular().
     }
 endif;
+
+if ( ! function_exists( 'sweetcake_anchors_next' ) ) :
+
+  function sweetcake_anchors_next($block_cur) {
+
+    $blocks = [
+      '#sweetcake-services',
+      '#sweetcake-testimonials',
+      '#sweetcake-works'
+    ];
+
+    $block_cur_id = array_search($block_cur, $blocks);
+    $block_prev = $blocks[$block_cur_id - 1];
+    $block_next = $blocks[$block_cur_id + 1];
+
+    $anchor_svg = sweetcake_get_svg( $args = array( 'icon' => 'anchor-bg', 'size' => array('42px','13px')) );
+
+echo
+    '<div class="anchor-container-top">
+      <div class="anchor-up">
+        <a href="' . $block_prev . '">' . $anchor_svg . '</a>
+      </div>
+      <div class="anchor-down">
+        <a href="' . $block_next . '">' . $anchor_svg . '</a>
+      </div>
+    </div>
+    <div class="anchor-container-bottom">
+      <div class="anchor-up">
+        <a href="' . $block_prev . '">' . $anchor_svg . '</a>
+      </div>
+      <div class="anchor-down">
+        <a href="' . $block_next . '">' . $anchor_svg . '</a>
+      </div>
+    </div>';
+  }
+
+endif;
+
+
+if ( ! function_exists( 'swcake_term_classes' ) ) :
+
+  function swcake_term_classes($terms) {
+
+    $result = '';
+
+    for($i = 0; $i < count($terms); ++$i) {
+      $result = $result . ' ' . $terms[$i]->slug;
+    }
+
+    return $result;
+  }
+
+endif;

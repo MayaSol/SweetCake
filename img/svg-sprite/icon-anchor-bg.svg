@@ -1,0 +1,5 @@
+<svg viewBox="0 0 42 13">
+  <path d="M 0 13
+           A 24 24 0 0 1 42 13 Z" class="bg" />
+  <path d="M 15 11 L 21 5 L 27 11" class="arrow" stroke-width="2" stroke="currentColor" fill="none"/>
+</svg>

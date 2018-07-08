@@ -19,7 +19,6 @@
 //        'fields'         => 'ids',
         ];
         $slider = get_posts( $slider_args );
-        error_log(print_r($slider,true));
 
         $images_args = array (
           'post_parent' => $slider[0]->ID,
@@ -29,7 +28,6 @@
           'post_mime_type' => 'image'
         );
         $images = get_children( $images_args );
-        error_log(print_r($images,true));
 
         if ( $images = get_children( $images_args ) ) {
           foreach( $images as $key=>$image ) {

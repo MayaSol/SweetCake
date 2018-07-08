@@ -1,0 +1,84 @@
+.sweetcake-testimonials {
+  position: relative;
+  background-image: url('img/bg-pink.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  .testimonials-list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 58px;
+      left: 20px;
+      width: 52px;
+      height: 42px;
+      background-image: url('img/topquote.png');
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 58px;
+      right: 20px;
+      width: 52px;
+      height: 42px;
+      background-image: url('img/bottomquote.png');
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    }
+  }
+  .item-testimonials {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 50%;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    &:first-child {
+      padding-right: 30px;
+      padding-left: 20px;
+      align-items: flex-end;
+      background-color: rgba(0, 0, 0, 0.1);
+      .item-testimonials-title,
+      .item-testimonials-text {
+        text-align: right;
+      }
+    }
+    &:last-child {
+      padding-left: 30px;
+      padding-right: 20px;
+      align-items: flex-start;
+      .item-testimonials-title,
+      .item-testimonials-text {
+        text-align: left;
+      }
+    }
+  }
+  .item-testimonials-title {
+    color: #ffffff;
+    font-family: 'Lobster13', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 1px 1px 0 rgba(190, 115, 135, 0.9);
+  }
+  .item-testimonials-content {
+    width: 540px;
+  }
+  .item-testimonials-text {
+    font-family: 'Oswald', Arial, sans-serif;
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+    font-weight: 300;
+    font-style: normal;
+    color: #ffffff;
+  }
+  .anchor-container-top {
+    @include anchors('top',#c795a5,#ffffff,#f7f8f8,#d39eaf);
+  }
+  .anchor-container-bottom {
+    @include anchors('bottom',#f7f8f8,#d39eaf,#e0a7b9,#ffffff);
+  }
+}

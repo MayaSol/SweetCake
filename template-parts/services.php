@@ -18,7 +18,7 @@
 
 ?>
 
-  <section class="sweetcake-services services">
+  <section class="sweetcake-services services" id="sweetcake-services">
     <div class="services-title-wrapper">
       <h2 class="services-title">
         Services We Provide

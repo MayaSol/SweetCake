@@ -3,6 +3,8 @@
   justify-content: center;
   padding-bottom: 25px;
   padding-top: 13px;
+  background-image: url('img/bg-white.png');
+  background-repeat: repeat;
   .menu-header-left-menu-container,
   .menu-header-right-menu-container {
     display: flex;
@@ -17,7 +19,7 @@
         padding: 19px 10px;
         border-top: 1px dashed #d6d5d5;
         border-bottom: 1px dashed #d6d5d5;
-        font-family: 'Lobster_1_3';
+        font-family: 'Lobster13';
         font-style: normal;
         font-size: 2rem;
         color: #7d7d7d;

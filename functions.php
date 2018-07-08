@@ -42,6 +42,8 @@ if ( ! function_exists( 'sweetcake_setup' ) ) :
      */
     add_theme_support( 'post-thumbnails' );
 
+    add_image_size( 'works-thumb', 558, 368, true );
+
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
       'header-left-menu' => esc_html__( 'Header Left Menu', 'sweetcake' ),
@@ -134,7 +136,12 @@ function sweetcake_scripts() {
   }
 
   wp_enqueue_script( 'owl-carousel-script', get_template_directory_uri() . '/node_modules/owl.carousel/dist/owl.carousel.min.js', array('jquery'), null, true);
+
+  wp_enqueue_script( 'isotope-script', get_template_directory_uri() . '/node_modules/isotope-layout/dist/isotope.pkgd.min.js', array(), null, true);
+
+  wp_enqueue_script( 'isotope-settings', get_template_directory_uri() . '/js/isotope-settings.js', array(), '20180708', true );
 }
+
 add_action( 'wp_enqueue_scripts', 'sweetcake_scripts' );
 
 /**
@@ -165,6 +172,10 @@ require get_template_directory() . '/inc/sliders.php';
 * Various custom post types
 */
 require get_template_directory() . '/inc/custom-post-types.php';
+/**
+* Functions for include svg icons
+*/
+require get_template_directory() . '/inc/icon-functions.php';
 
 
 /**
