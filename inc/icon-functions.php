@@ -18,9 +18,19 @@ function sweetcake_include_svg_icons() {
 	if ( file_exists( $svg_icons ) ) {
 		require_once( $svg_icons );
 	}
+
+    $svg_icons = get_parent_theme_file_path( "/img/svg-icons.svg" );
+
+  // If it exists, include it.
+  if ( file_exists( $svg_icons ) ) {
+    require_once( $svg_icons );
+  }
 //  error_log("sweetcake_include_svg_icons__end");
+
 }
+
 add_action( 'wp_footer', 'sweetcake_include_svg_icons', 9999 );
+
 
 /**
  * Return SVG markup.
@@ -142,6 +152,7 @@ function sweetcake_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	// Change SVG icon inside social links menu if there is supported URL.
 	if ( 'socials-menu' === $args->theme_location ) {
 		foreach ( $social_icons as $attr => $value ) {
+
 			if ( false !== strpos( $item_output, $attr ) ) {
 				$item_output = str_replace( $args->link_after, '</span>'
           . sweetcake_get_svg( array( 'icon' => esc_attr( $value ), 'size' => array('30','30') ) ), $item_output );
@@ -231,3 +242,30 @@ function sweetcake_social_links_icons() {
 
 	return apply_filters( 'sweetcake_social_links_icons', $social_links_icons );
 }
+
+
+/**
+ * Add custom attribute and value to a nav menu item's anchor.
+ *
+ * @author Sridhar Katakam
+ * @link   https://sridharkatakam.com/
+ */
+function sweetcake_nav_menu_social_links( $atts, $item, $args ) {
+
+  // Get supported social icons.
+  $social_icons = sweetcake_social_links_icons();
+
+  // Change SVG icon inside social links menu if there is supported URL.
+  if ( 'socials-menu' === $args->theme_location ) {
+    foreach ( $social_icons as $attr => $value ) {
+
+      if ( false !== strpos( $item->url, $attr ) ) {
+        $atts['class'] = $value;
+      }
+    }
+  }
+
+  return $atts;
+}
+
+add_filter( 'nav_menu_link_attributes', 'sweetcake_nav_menu_social_links' , 10, 3 );

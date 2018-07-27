@@ -6,6 +6,10 @@
  * @package sweetcake
  */
 
+/*
+* Custom post type for services block
+*/
+
 function create_services_posttype() {
     $args = array(
       'labels' => array(
@@ -41,6 +45,10 @@ function create_testimonials_posttype() {
 
 add_action( 'init', 'create_testimonials_posttype' );
 
+/*
+ * Custom post type and taxonomy for Our Works block
+*/
+
 
 function create_works_posttype() {
     $args = array(
@@ -51,7 +59,7 @@ function create_works_posttype() {
       'public' => true,
       //'menu_icon' => 'dashicons-images-alt',
       'capability_type' => 'post',
-      'label'  => 'testimonial',
+      'label'  => 'work',
       'supports' => array( 'title', 'editor', 'custom-fields', 'thumbnail', 'page-attributes')
     );
     register_post_type( 'swcake_work', $args );
@@ -97,3 +105,25 @@ function create_works_taxonomy() {
 
 
 add_action( 'init', 'create_works_taxonomy', 0 );
+
+
+/*
+ * Custom post type for Prices block
+*/
+
+function create_price_posttype() {
+    $args = array(
+      'labels' => array(
+        'name' => __( 'SweetCake Prices' ),
+        'singular_name' => __( 'SweetCake Price' )
+      ),
+      'public' => true,
+      //'menu_icon' => 'dashicons-images-alt',
+      'capability_type' => 'post',
+      'label'  => 'price',
+      'supports' => array( 'title', 'editor', 'custom-fields', 'thumbnail', 'page-attributes')
+    );
+    register_post_type( 'swcake_price', $args );
+}
+
+add_action( 'init', 'create_price_posttype' );

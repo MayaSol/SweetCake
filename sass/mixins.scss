@@ -110,7 +110,9 @@ fieldset[disabled] a.btn {
   text-shadow: 3px 3px 0 $shadow-color;
 }
 
-
+/*
+* Set background colors from color collections of fixed number of colors to n elements
+*/
 @mixin set-btn-color {
   $color-collection: (#e1a4a4, #a4dce1, #e1d9a4, #93cdc5, #bee1a4);
   $n: 15;
@@ -118,9 +120,53 @@ fieldset[disabled] a.btn {
   @for $i from 0 through ($n - 1) {
     @if ($i < length($color-collection)) {$j: $i+1}
     @else {$j: $i%length($color-collection)+1}
-//    @if ($j == 0) {$j: length($color-collection)}
     &:nth-child(#{$i + 1}) {
       background-color: #{nth($color-collection,$j)}
     };
+  }
+}
+
+@mixin top-wave {
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    z-index: 410;
+    background-image: url('img/top-wave.png');
+    background-repeat: repeat-x;
+    background-size: 44px;
+    /*background: -webkit-linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0%) 0 0,
+    radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 0 0,
+    radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 40px 0 transparent;
+    background-size: 80px 110px;
+    background-repeat:repeat-x;*/
+  }
+}
+
+@mixin bottom-wave {
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    z-index: 410;
+    background-image: url('img/top-wave.png');
+    background-repeat: repeat-x;
+    background-size: 44px;
+    transform: rotate(180deg);
+    /*background: -webkit-linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0%) 0 0,
+    radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 0 0,
+    radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 40px 0 transparent;
+    background-size: 80px 110px;
+    background-repeat:repeat-x;*/
   }
 }

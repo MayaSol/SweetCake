@@ -1,0 +1,105 @@
+.sweetcake-map {
+  @include top-wave;
+  @include bottom-wave;
+  &:after {
+    bottom: -1px;
+  }
+  height: 790px;
+}
+
+.map-marker-icon {
+  &.opened {
+    background-image: url('img/mapmarker.png');
+  }
+  &.closed {
+    background-image: url('img/mapmarker-close.png');
+  }
+}
+
+.sweetcake-map-popup {
+  margin-bottom: -200px;
+  .leaflet-popup-tip-container {
+    display: none;
+  }
+  .leaflet-popup-content-wrapper {
+    background-color: transparent;
+    background-image: url('img/map-balloon.png');
+    box-shadow: none;
+  }
+  .leaflet-popup-content-wrapper {
+    width: 380px;
+    height: 480px;
+  }
+
+  .leaflet-popup-content {
+    margin: 0;
+    display: flex;
+  }
+
+  .map-info {
+    width: 320px;
+    margin: auto;
+    padding: 84px 65px;
+  }
+
+  .map-info-title {
+    position: relative;
+    margin: 0;
+    margin-bottom: 36px;
+    font-family: 'Lobster13', Arial, sans-serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    color: #7d7d7d;
+    text-align: center;
+  svg {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%) rotate(180deg);
+      fill: transparent;
+    }
+  }
+
+  .map-info-line {
+    position: relative;
+    margin-left: 33px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      bottom: 50%;
+      width: 20px;
+      height: 16px;
+      transform: translateY(50%);
+      background-repeat: no-repeat;
+    }
+  }
+
+  .map-info-address {
+    &:before {
+      background-image: url('img/icon-address.png');
+      background-size:  20px 16px;
+    }
+  }
+  .map-info-phone {
+    &:before {
+      background-image: url('img/icon-phone.png');
+      background-size:  16px 16px;
+    }
+  }
+  .map-info-fax {
+    &:before {
+      background-image: url('img/icon-fax.png');
+      background-size:  18px 16px;
+    }
+  }
+  .map-info-email {
+    &:before {
+      background-image: url('img/icon-email.png');
+      background-size:  16px 16px;
+    }
+  }
+
+
+}

@@ -48,6 +48,7 @@ if ( ! function_exists( 'sweetcake_setup' ) ) :
     register_nav_menus( array(
       'header-left-menu' => esc_html__( 'Header Left Menu', 'sweetcake' ),
       'header-right-menu' => esc_html__( 'Header Right Menu', 'sweetcake'),
+      'socials-menu' => esc_html__( 'Socials Menu', 'sweetcake'),
     ) );
 
     /*
@@ -127,6 +128,10 @@ function sweetcake_scripts() {
 
   wp_enqueue_style( 'owl-carousel-style', get_template_directory_uri() . '/node_modules/owl.carousel/dist/assets/owl.carousel.min.css' );
 
+  wp_enqueue_style( 'leaflet', get_template_directory_uri() . '/node_modules/leaflet/dist/leaflet.css' );
+
+  wp_enqueue_script( 'leaflet', get_template_directory_uri() . '/node_modules/leaflet/dist/leaflet.js' );
+
   wp_enqueue_script( 'sweetcake-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
   wp_enqueue_script( 'sweetcake-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -140,6 +145,8 @@ function sweetcake_scripts() {
   wp_enqueue_script( 'isotope-script', get_template_directory_uri() . '/node_modules/isotope-layout/dist/isotope.pkgd.min.js', array(), null, true);
 
   wp_enqueue_script( 'isotope-settings', get_template_directory_uri() . '/js/isotope-settings.js', array(), '20180708', true );
+
+  //wp_enqueue_script( 'map-marker', get_template_directory_uri() . '/js/map-marker.js', array(), '20180724', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'sweetcake_scripts' );
@@ -173,9 +180,18 @@ require get_template_directory() . '/inc/sliders.php';
 */
 require get_template_directory() . '/inc/custom-post-types.php';
 /**
+* Cutsom Fields, requires plugin Advanced Custom Fields
+*/
+require get_template_directory() . '/inc/custom-fields.php';
+
+/**
 * Functions for include svg icons
 */
 require get_template_directory() . '/inc/icon-functions.php';
+/*
+ * Options page
+ */
+require get_parent_theme_file_path( '/inc/options-page.php' );
 
 
 /**
@@ -184,4 +200,8 @@ require get_template_directory() . '/inc/icon-functions.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
   require get_template_directory() . '/inc/jetpack.php';
 }
-
+/**
+ * Enable ACF 5 early access
+ * Requires at least version ACF 4.4.12 to work
+ */
+define('ACF_EARLY_ACCESS', '5');

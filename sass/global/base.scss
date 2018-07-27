@@ -8,3 +8,7 @@ html {
 .svg-sprite {
   height: 0;
 }
+
+.btn {
+  @include sweetcake-btn;
+}

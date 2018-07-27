@@ -152,9 +152,14 @@ if ( ! function_exists( 'sweetcake_anchors_next' ) ) :
   function sweetcake_anchors_next($block_cur) {
 
     $blocks = [
+      '',
       '#sweetcake-services',
       '#sweetcake-testimonials',
-      '#sweetcake-works'
+      '#sweetcake-works',
+      '#sweetcake-prices',
+      '#sweetcake-social',
+      '#sweetcake-map',
+      ''
     ];
 
     $block_cur_id = array_search($block_cur, $blocks);
@@ -197,5 +202,49 @@ if ( ! function_exists( 'swcake_term_classes' ) ) :
 
     return $result;
   }
+
+endif;
+
+if ( ! function_exists( 'sweetcake_map_contacts' ) ) :
+    /**
+     * Displays an optional post thumbnail.
+     *
+     * Wraps the post thumbnail in an anchor element on index views, or a div
+     * element when on single views.
+     */
+    function sweetcake_map_contacts() {
+
+      echo '<div class="map-info">';
+
+      echo '<h3 class="map-info-title">Sweet Cake'.
+      sweetcake_get_svg( $args = array( 'icon' => 'anchor-up', 'size' => array('15px','8px')) )
+      .'</h3>';
+
+      $address = esc_html( get_option('address') );
+
+      if ($address) {
+        echo '<p class="map-info-line map-info-address">' . $address . '</p>';
+      }
+
+      $phone = esc_html( get_option('phone_number') );
+
+      if ($phone) {
+        echo '<p class="map-info-line map-info-phone">Tel: ' . $phone . '</p>';
+      }
+
+      $fax = esc_html( get_option('phone_number') );
+
+      if ($fax) {
+        echo '<p class="map-info-line map-info-fax">Fax: ' . $fax . '</p>';
+      }
+
+      $email = esc_html( get_option('email') );
+
+      if ($email) {
+        echo '<p class="map-info-line map-info-email">Email: ' . $email . '</p>';
+      }
+
+      echo '</div>';
+    }
 
 endif;

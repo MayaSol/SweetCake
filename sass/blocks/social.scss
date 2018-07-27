@@ -1,0 +1,68 @@
+.sweetcake-social {
+  padding-bottom: 120px;
+  background-image: url('img/bg-white.png');
+  background-repeat: repeat;
+  border-top: 1px solid transparent;
+  .social-title {
+    @include section-title(#7d7d7d, rgba(223, 223, 223, 0.9));
+  }
+  .social-title-wrapper {
+    @include container;
+    position: relative;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 1160px;
+      height: 44px;
+      transform: translateX(-50%);
+      background-image: url('img/divider-car.png');
+      background-size: 580px auto;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+  .menu-socials-menu-container {
+    display: flex;
+    ul {
+      margin: auto;
+      padding: 0;
+      display: flex;
+      list-style: none;
+    }
+    .menu-item {
+      margin-right: 60px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    a {
+      display: block;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      display: flex;
+      svg {
+        margin: auto;
+        width: 67px;
+        height: 67px;
+        fill: white;
+      }
+    }
+    .google-plus {
+      background-color:#e78282;
+    }
+    .twitter {
+      background-color: #73d6e8;
+    }
+    .facebook {
+      background-color: #8b9dc3;
+    }
+  }
+}
+
