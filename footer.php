@@ -52,6 +52,7 @@
   var markerIcon = L.divIcon({
     className: 'map-marker-icon',
     iconSize: [57, 57],
+    html: '<div class="marker-icon-wrapper"></div>',
     //iconAnchor: [27, 27]
     popupAnchor: [0, -24],
   });

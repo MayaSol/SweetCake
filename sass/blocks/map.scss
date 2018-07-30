@@ -1,18 +1,41 @@
 .sweetcake-map {
+  position: relative;
   @include top-wave;
-  @include bottom-wave;
+  height: 790px;
   &:after {
     bottom: -1px;
   }
-  height: 790px;
+  .anchor-container-bottom {
+    @include anchors('bottom',#ffffff,#eac2cd,#000000,#000000);
+    z-index: 500;
+  }
+}
+
+@keyframes spin {
+    100% {
+      transform: rotate(720deg);
+    }
 }
 
 .map-marker-icon {
   &.opened {
-    background-image: url('img/mapmarker.png');
+    .marker-icon-wrapper {
+      background-image: url('img/mapmarker.png');
+    }
   }
   &.closed {
-    background-image: url('img/mapmarker-close.png');
+    .marker-icon-wrapper {
+      background-image: url('img/mapmarker-close.png');
+    }
+  }
+  .marker-icon-wrapper {
+    width: 57px;
+    height: 57px;
+    background-image: url('img/mapmarker.png');
+    transition: transform 1s;
+    &:hover {
+        transform: rotate(360deg);
+    }
   }
 }
 
@@ -100,6 +123,5 @@
       background-size:  16px 16px;
     }
   }
-
 
 }

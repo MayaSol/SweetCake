@@ -48,8 +48,8 @@
             <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'sweetcake' ); ?></button>
             <?php
             wp_nav_menu( array(
-                'theme_location' => 'header-left-menu',
-                'menu_id'        => 'header-left-menu',
+                'theme_location' => 'header-left',
+                'menu_id'        => 'header-left',
             ) );
             if ( function_exists( 'the_custom_logo' ) ) {
             ?>
@@ -61,8 +61,8 @@
             <?php
             }
             wp_nav_menu( array(
-                'theme_location' => 'header-right-menu',
-                'menu_id'        => 'header-right-menu',
+                'theme_location' => 'header-right',
+                'menu_id'        => 'header-right',
             ) );
             ?>
         </nav><!-- #site-navigation -->

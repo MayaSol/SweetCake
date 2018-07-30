@@ -6,8 +6,8 @@
     </div>
 <?php
     wp_nav_menu( array(
-        'theme_location' => 'socials-menu',
-        'menu_id'        => 'socials-menu',
+        'theme_location' => 'socials',
+        'menu_id'        => 'socials',
         'link_before'    => '<span class="screen-reader-text">',
         'link_after'     => '</span>'
     ) );

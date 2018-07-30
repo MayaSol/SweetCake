@@ -16,7 +16,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 0;
     font-family: 'Lobster13';
     color: #ffffff;
@@ -29,7 +29,7 @@
   top: 50%;
   left: 0;
   width: 100%;
-  transform: translateY(-50%);
+  transform: translateY(-20px); //0.5 from .owl-prev .owl-next buttons height
   z-index: 100;
   .owl-prev,
   .owl-next {
@@ -60,5 +60,14 @@
     top: 0;
     right: 20px;
     z-index: 100;
+  }
+}
+
+@media #{$mobile-widths-only} {
+  .slider-main-item {
+    height: auto;
+    h2 {
+      font-size: 2rem;
+    }
   }
 }

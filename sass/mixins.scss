@@ -15,6 +15,22 @@
   }
 }
 
+@mixin container-wider {
+  width: 280px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media #{$tablet-widths}
+  {
+    width: $container-tablet;
+  }
+
+  @media #{$desktop-widths}
+  {
+    width: $container-desktop;
+  }
+}
+
 @mixin sweetcake-btn {
   display: inline-block;
   font-weight: 400;

@@ -46,9 +46,9 @@ if ( ! function_exists( 'sweetcake_setup' ) ) :
 
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
-      'header-left-menu' => esc_html__( 'Header Left Menu', 'sweetcake' ),
-      'header-right-menu' => esc_html__( 'Header Right Menu', 'sweetcake'),
-      'socials-menu' => esc_html__( 'Socials Menu', 'sweetcake'),
+      'header-left' => esc_html__( 'Header Left', 'sweetcake' ),
+      'header-right' => esc_html__( 'Header Right', 'sweetcake'),
+      'socials' => esc_html__( 'Socials', 'sweetcake'),
     ) );
 
     /*

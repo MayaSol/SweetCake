@@ -13,32 +13,38 @@
     margin-bottom: 50px;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
+    background-image: url('img/divider-car.png');
+    background-size: 580px auto;
+    background-position: center bottom;
+    background-repeat: no-repeat;
     &:after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 50%;
-      width: 1160px;
+      width: 580px;
       height: 44px;
       transform: translateX(-50%);
-      background-image: url('img/divider-car.png');
-      background-size: 580px auto;
-      background-position: center center;
-      background-repeat: no-repeat;
     }
   }
   .menu-socials-menu-container {
+    @include container;
     display: flex;
     ul {
       margin: auto;
       padding: 0;
       display: flex;
+      flex-wrap: wrap;
       list-style: none;
     }
     .menu-item {
       margin-right: 60px;
       &:last-child {
         margin-right: 0;
+      }
+      transition: transform 0.5s;
+      &:hover {
+        transform: rotate(360deg);
       }
     }
     a {
@@ -62,6 +68,23 @@
     }
     .facebook {
       background-color: #8b9dc3;
+    }
+  }
+}
+
+@media #{$mobile-widths-only} {
+  .sweetcake-social {
+    .menu-socials-menu-container {
+      .menu {
+        flex-direction: column;
+      }
+      .menu-item {
+        margin-right: 0;
+        margin-bottom: 30px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }

@@ -150,7 +150,7 @@ function sweetcake_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	$social_icons = sweetcake_social_links_icons();
 
 	// Change SVG icon inside social links menu if there is supported URL.
-	if ( 'socials-menu' === $args->theme_location ) {
+	if ( 'socials' === $args->theme_location ) {
 		foreach ( $social_icons as $attr => $value ) {
 
 			if ( false !== strpos( $item_output, $attr ) ) {
@@ -245,10 +245,8 @@ function sweetcake_social_links_icons() {
 
 
 /**
- * Add custom attribute and value to a nav menu item's anchor.
+ * Add class to a nav menu item.
  *
- * @author Sridhar Katakam
- * @link   https://sridharkatakam.com/
  */
 function sweetcake_nav_menu_social_links( $atts, $item, $args ) {
 
@@ -256,7 +254,7 @@ function sweetcake_nav_menu_social_links( $atts, $item, $args ) {
   $social_icons = sweetcake_social_links_icons();
 
   // Change SVG icon inside social links menu if there is supported URL.
-  if ( 'socials-menu' === $args->theme_location ) {
+  if ( 'socials' === $args->theme_location ) {
     foreach ( $social_icons as $attr => $value ) {
 
       if ( false !== strpos( $item->url, $attr ) ) {

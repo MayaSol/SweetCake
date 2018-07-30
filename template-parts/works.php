@@ -15,9 +15,9 @@ $the_query = new WP_Query( $args );
 ?>
 
 
-<section class="sweetcake-works works" id="sweetcake-works">
-  <div class="works-title-wrapper">
-    <h2 class="works-title">
+<section class='sweetcake-works works' id='sweetcake-works'>
+  <div class='works-title-wrapper'>
+    <h2 class='works-title'>
       Our Works
     </h2>
   </div>
@@ -29,7 +29,7 @@ if ( $the_query->have_posts() ) :
 ?>
 
 
-  <div class="works-list">
+  <div class='works-list'>
 
 <?php
     $terms_all = '';
@@ -40,15 +40,17 @@ if ( $the_query->have_posts() ) :
       $terms_classes = swcake_term_classes($terms);
       $terms_all = $terms_all . $terms_classes;
 ?>
-  <article class="works-item<?php echo $terms_classes ?>">
-    <div class="works-item-img">
-      <?php the_post_thumbnail('works-item-thumb'); ?>
+  <article class='works-item<?php echo $terms_classes ?>'>
+    <div class='works-item-img-wrapper'>
+      <div class='works-item-img'>
+        <?php the_post_thumbnail('works-item-thumb'); ?>
+      </div>
     </div>
-    <div class="work-item-desc">
-      <h3 class="work-item-title">
+    <div class='work-item-desc'>
+      <h3 class='work-item-title'>
         <?php the_title();?>
       </h3>
-      <div class="work-item-text">
+      <div class='work-item-text'>
         <?php the_content();?>
       </div>
     </div>
@@ -67,8 +69,8 @@ endif;
     $terms_list = array_unique(explode(' ',trim($terms_all)));
   ?>
 
-  <div class="terms-buttons">
-    <div class="terms-buttons-item" data-filter="*">Show All</div>
+  <div class='terms-buttons'>
+    <div class='terms-buttons-item' data-filter='*'>Show All</div>
     <?php
       foreach ($terms_list as $key => $value) {
         echo '<div class="terms-buttons-item" data-filter=".' . $value .'">'
