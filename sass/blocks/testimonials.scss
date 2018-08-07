@@ -1,114 +1,145 @@
 .sweetcake-testimonials {
   position: relative;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 50%, transparent 50%), url('img/bg-pink.png');
+
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 50%, transparent 50%), url("img/bg-pink.png");
   background-repeat: repeat;
   background-attachment: fixed;
+
   &:hover {
-    .testimonials-list:before,
-    .testimonials-list:after {
+    .testimonials-list::before,
+    .testimonials-list::after {
       transform: scale(1.3);
     }
   }
+
   .testimonials-list {
-    @include container;
     position: relative;
+
     display: flex;
+
+    @include container;
     justify-content: center;
-    &:before {
-      content: '';
+
+    &::before {
       position: absolute;
       top: 58px;
       left: 20px;
+
       width: 52px;
       height: 42px;
-      background-image: url('img/topquote.png');
-      background-size: 100% auto;
-      background-repeat: no-repeat;
+
+      content: "";
       transition: transform 0.5s;
+
+      background-image: url("img/topquote.png");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
     }
-    &:after {
-      content: '';
+
+    &::after {
       position: absolute;
-      bottom: 58px;
       right: 20px;
+      bottom: 58px;
+
       width: 52px;
       height: 42px;
-      background-image: url('img/bottomquote.png');
-      background-size: 100% auto;
-      background-repeat: no-repeat;
+
+      content: "";
       transition: transform 0.5s;
+
+      background-image: url("img/bottomquote.png");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
     }
   }
+
   .item-testimonials {
-      display: flex;
-      flex-direction: column;
-      flex-basis: 50%;
-      //width: 50%;
-      flex-grow: 0;
-      padding-top: 100px;
-      padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    flex-basis: 50%;
+    //width: 50%;
+    flex-grow: 0;
+
     &:first-child {
       padding-right: 30px;
       padding-left: 20px;
+
       align-items: flex-end;
+
       .item-testimonials-title,
       .item-testimonials-text {
         text-align: right;
       }
     }
+
     &:last-child {
-      padding-left: 30px;
       padding-right: 20px;
+      padding-left: 30px;
+
       align-items: flex-start;
+
       .item-testimonials-title,
       .item-testimonials-text {
         text-align: left;
       }
     }
   }
+
   .item-testimonials-title {
-    color: #ffffff;
-    font-family: 'Lobster13', Arial, sans-serif;
+    font-family: "Lobster13", "Arial", sans-serif;
     font-size: 2rem;
     font-weight: 400;
     font-style: normal;
+
+    color: #ffffff;
     text-shadow: 1px 1px 0 rgba(190, 115, 135, 0.9);
   }
+
   .item-testimonials-content {
     //width: 540px;
   }
+
   .item-testimonials-text {
-    font-family: 'Oswald', Arial, sans-serif;
+    font-family: "Oswald", "Arial", sans-serif;
     font-size: 1.7rem;
-    line-height: 2.4rem;
     font-weight: 300;
     font-style: normal;
+    line-height: 2.4rem;
+
     color: #ffffff;
   }
+
   .anchor-container-top {
-    @include anchors('top',#c795a5,#ffffff,#f7f8f8,#d39eaf);
+    @include anchors("top",#c795a5,#ffffff,#f7f8f8,#d39eaf);
   }
+
   .anchor-container-bottom {
-    @include anchors('bottom',#f7f8f8,#d39eaf,#e0a7b9,#ffffff);
+    @include anchors("bottom",#f7f8f8,#d39eaf,#e0a7b9,#ffffff);
   }
 }
 
-
 @media #{$mobile-widths-only} {
   .sweetcake-testimonials {
-    background-image: url('img/bg-pink.png');
+    background-image: url("img/bg-pink.png");
+
     .testimonials-list {
       flex-direction: column;
     }
+
     .item-testimonials {
       &:first-child {
         padding-bottom: 40px;
+
         border-bottom: 1px solid #ffffff;
       }
+
       &:last-child {
         padding-top: 40px;
       }
     }
   }
 }
-

@@ -1,16 +1,13 @@
-@mixin container
-{
+@mixin container {
   width: $container-mobile;
   margin-right: auto;
   margin-left: auto;
 
-  @media #{$tablet-widths}
-  {
+  @media #{$tablet-widths} {
     width: $container-tablet;
   }
 
-  @media #{$desktop-widths}
-  {
+  @media #{$desktop-widths} {
     width: $container-desktop;
   }
 }
@@ -20,38 +17,40 @@
   margin-right: auto;
   margin-left: auto;
 
-  @media #{$tablet-widths}
-  {
+  @media #{$tablet-widths} {
     width: $container-tablet;
   }
 
-  @media #{$desktop-widths}
-  {
+  @media #{$desktop-widths} {
     width: $container-desktop;
   }
 }
 
 @mixin sweetcake-btn {
   display: inline-block;
+
   font-weight: 400;
-  text-align: center;
-  white-space: word-wrap;
-  vertical-align: middle;
-  user-select: none;
-  border: none;
-  text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: none;
-  border: none;
+
   cursor: pointer;
-/*  @include transition($btn-transition);*/
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: word-wrap;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border: none;
+  box-shadow: none;
+
+  /*  @include transition($btn-transition);*/
 
   //&hover and focus styles
   &:hover,
   &:focus,
   &.focus {
-    outline: 0;
     text-decoration: none;
+
+    outline: 0;
     box-shadow: 1px 1px 0 rgba(125, 125, 125, 0.75);
   }
 
@@ -68,6 +67,7 @@
     box-shadow: inset 0 1px 4px rgba(125, 125, 125, 0.75);
   }
 }
+
 // Future-proof disabling of clicks on `<a>` elements
 a.btn.disabled,
 fieldset[disabled] a.btn {
@@ -77,37 +77,53 @@ fieldset[disabled] a.btn {
 @mixin anchors($position, $up-bg-color, $up-arrow-color, $down-bg-color, $down-arrow-color) {
   position: absolute;
   left: 50%;
+
   font-size: 0;
-  @if ($position == 'top') {
+
+  @if ($position == "top") {
     top: 0;
+
     transform: translate(-50%,-100%);
   }
-  @else if ($position == 'bottom') {
+
+  @else if ($position == "bottom") {
     bottom: 0;
+
     transform: translate(-50%);
   }
+
   .anchor-up {
     display: inline-block;
+
     a {
       display: block;
+
       color: $up-arrow-color;
     }
+
     svg {
       fill: $up-bg-color;
+
       path:nth-of-type(2) {
         stroke: currentColor;
       }
     }
   }
+
   .anchor-down {
     display: inline-block;
+
     transform: translateY(100%) rotate(180deg);
+
     a {
       display: block;
+
       color: $down-arrow-color;
     }
+
     svg {
       fill: $down-bg-color;
+
       path:nth-of-type(2) {
         stroke: currentColor;
       }
@@ -117,12 +133,15 @@ fieldset[disabled] a.btn {
 
 @mixin section-title($text-color, $shadow-color) {
   margin: 50px 0;
-  text-align: center;
-  font-family: 'Lobster13', Arial, sans-serif;
-  color: $text-color;
+
+  font-family: "Lobster13", Arial, sans-serif;
   font-size: 5rem;
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
+
+  text-align: center;
+
+  color: $text-color;
   text-shadow: 3px 3px 0 $shadow-color;
 }
 
@@ -133,27 +152,38 @@ fieldset[disabled] a.btn {
   $color-collection: (#e1a4a4, #a4dce1, #e1d9a4, #93cdc5, #bee1a4);
   $n: 15;
   $j: 1;
+
   @for $i from 0 through ($n - 1) {
-    @if ($i < length($color-collection)) {$j: $i+1}
-    @else {$j: $i%length($color-collection)+1}
+    @if ($i < length($color-collection)) {
+      $j: $i+1;
+    }
+    @else {
+      $j: $i%length($color-collection)+1;
+    }
+
     &:nth-child(#{$i + 1}) {
-      background-color: #{nth($color-collection,$j)}
+      background-color: #{nth($color-collection,$j)};
     };
   }
 }
 
 @mixin top-wave {
   position: relative;
+
   &:before {
-    content: '';
-    display: block;
     position: absolute;
+    z-index: 410;
     top: 0;
     left: 0;
+
+    display: block;
+
     width: 100%;
     height: 16px;
-    z-index: 410;
-    background-image: url('img/top-wave.png');
+
+    content: "";
+
+    background-image: url("img/top-wave.png");
     background-repeat: repeat-x;
     background-size: 44px;
     /*background: -webkit-linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0%) 0 0,
@@ -166,19 +196,24 @@ fieldset[disabled] a.btn {
 
 @mixin bottom-wave {
   position: relative;
+
   &:after {
-    content: '';
-    display: block;
     position: absolute;
+    z-index: 410;
     bottom: 0;
     left: 0;
+
+    display: block;
+
     width: 100%;
     height: 16px;
-    z-index: 410;
-    background-image: url('img/top-wave.png');
+
+    content: "";
+    transform: rotate(180deg);
+
+    background-image: url("img/top-wave.png");
     background-repeat: repeat-x;
     background-size: 44px;
-    transform: rotate(180deg);
     /*background: -webkit-linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0%) 0 0,
     radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 0 0,
     radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 40px 0 transparent;

@@ -1,62 +1,68 @@
 .sweetcake-map {
   position: relative;
-  @include top-wave;
+
   height: 790px;
-  &:after {
+
+  @include top-wave;
+
+  &::after {
     bottom: -1px;
   }
-  .anchor-container-bottom {
-    @include anchors('bottom',#ffffff,#eac2cd,#000000,#000000);
-    z-index: 500;
-  }
-}
 
-@keyframes spin {
-    100% {
-      transform: rotate(720deg);
-    }
+  .anchor-container-bottom {
+    z-index: 500;
+
+    @include anchors("bottom",#ffffff,#eac2cd,#000000,#000000);
+  }
 }
 
 .map-marker-icon {
   &.opened {
     .marker-icon-wrapper {
-      background-image: url('img/mapmarker.png');
+      background-image: url("img/mapmarker.png");
     }
   }
+
   &.closed {
     .marker-icon-wrapper {
-      background-image: url('img/mapmarker-close.png');
+      background-image: url("img/mapmarker-close.png");
     }
   }
+
   .marker-icon-wrapper {
     width: 57px;
     height: 57px;
-    background-image: url('img/mapmarker.png');
+
     transition: transform 1s;
+
+    background-image: url("img/mapmarker.png");
+
     &:hover {
-        transform: rotate(360deg);
+      transform: rotate(360deg);
     }
   }
 }
 
 .sweetcake-map-popup {
   margin-bottom: -200px;
+
   .leaflet-popup-tip-container {
     display: none;
   }
-  .leaflet-popup-content-wrapper {
-    background-color: transparent;
-    background-image: url('img/map-balloon.png');
-    box-shadow: none;
-  }
+
   .leaflet-popup-content-wrapper {
     width: 380px;
     height: 480px;
+
+    background-color: transparent;
+    background-image: url("img/map-balloon.png");
+    box-shadow: none;
   }
 
   .leaflet-popup-content {
-    margin: 0;
     display: flex;
+
+    margin: 0;
   }
 
   .map-info {
@@ -67,61 +73,75 @@
 
   .map-info-title {
     position: relative;
+
     margin: 0;
     margin-bottom: 36px;
-    font-family: 'Lobster13', Arial, sans-serif;
+
+    font-family: "Lobster13", "Arial", sans-serif;
     font-size: 2rem;
-    font-style: normal;
     font-weight: 400;
-    color: #7d7d7d;
+    font-style: normal;
+
     text-align: center;
-  svg {
+
+    color: #7d7d7d;
+
+    svg {
       position: absolute;
       bottom: -8px;
       left: 50%;
+
       transform: translateX(-50%) rotate(180deg);
+
       fill: transparent;
     }
   }
 
   .map-info-line {
     position: relative;
+
     margin-left: 33px;
-    &:before {
-      content: '';
+
+    &::before {
       position: absolute;
-      left: -33px;
       bottom: 50%;
+      left: -33px;
+
       width: 20px;
       height: 16px;
+
+      content: "";
       transform: translateY(50%);
+
       background-repeat: no-repeat;
     }
   }
 
   .map-info-address {
-    &:before {
-      background-image: url('img/icon-address.png');
-      background-size:  20px 16px;
-    }
-  }
-  .map-info-phone {
-    &:before {
-      background-image: url('img/icon-phone.png');
-      background-size:  16px 16px;
-    }
-  }
-  .map-info-fax {
-    &:before {
-      background-image: url('img/icon-fax.png');
-      background-size:  18px 16px;
-    }
-  }
-  .map-info-email {
-    &:before {
-      background-image: url('img/icon-email.png');
-      background-size:  16px 16px;
+    &::before {
+      background-image: url("img/icon-address.png");
+      background-size: 20px 16px;
     }
   }
 
+  .map-info-phone {
+    &::before {
+      background-image: url("img/icon-phone.png");
+      background-size: 16px 16px;
+    }
+  }
+
+  .map-info-fax {
+    &::before {
+      background-image: url("img/icon-fax.png");
+      background-size: 18px 16px;
+    }
+  }
+
+  .map-info-email {
+    &::before {
+      background-image: url("img/icon-email.png");
+      background-size: 16px 16px;
+    }
+  }
 }

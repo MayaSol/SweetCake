@@ -23,7 +23,9 @@
     "gulp-uglify": "^3.0.0",
     "node-normalize-scss": "^3.0.0",
     "pump": "^1.0.2",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "stylelint": "^9.4.0",
+    "stylelint-config-htmlacademy": "^0.1.1"
   },
   "scripts": {
     "test": "editorconfig-cli",
@@ -45,5 +47,11 @@
     "isotope-layout": "^3.0.6",
     "leaflet": "^1.3.3",
     "owl.carousel": "^2.3.4"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-htmlacademy",
+    "rules": {
+      "string-quotes": "double"
+    }
   }
 }

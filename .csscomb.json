@@ -22,6 +22,7 @@
     "tab-size": true,
     "unitless-zero": true,
     "vendor-prefix-align": true,
+    "lines-between-rulesets": 1,
             "sort-order": [
             [
                 "position",

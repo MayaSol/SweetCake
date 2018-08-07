@@ -1,204 +1,279 @@
 .sweetcake-prices {
   position: relative;
-  background-image: url('img/bg-blue.png');
+
+  background-image: url("img/bg-blue.png");
   background-repeat: repeat;
-//  border-top: 1px solid transparent;
+
+  //  border-top: 1px solid transparent;
   .prices-title {
     @include section-title(#ffffff, rgba(111, 176, 167, 0.9));
   }
+
   .prices-title-wrapper {
-    @include container;
     position: relative;
-    margin-top: 70px;
+
     margin-bottom: 30px;
+
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    &:after {
-      content: '';
+
+    @include container;
+
+    &::after {
       position: absolute;
       bottom: 0;
       left: 50%;
+
       width: 100%;
       height: 44px;
+
+      content: "";
       transform: translateX(-50%);
-      background-image: url('img/divider-candy.png');
-      background-size: 580px auto;
-      background-position: center bottom;
+
+      background-image: url("img/divider-candy.png");
       background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: 580px auto;
     }
   }
+
   .prices-list {
-    @include container-wider;
     display: flex;
-    justify-content: center;
+
     padding-bottom: 120px;
+
+    @include container-wider;
+    justify-content: center;
   }
+
   .prices-item {
+    position: relative;
+
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
-    flex-grow: 0;
-    position: relative;
-    margin-top: 100px;
-    padding-top: 114px;
+
     width: 280px;
+    margin-top: 100px;
     margin-right: 30px;
+    padding-top: 114px;
+
+    transition: transform 0.5s;
+
+    background-image: url("img/bg-prices-item.png");
+    background-repeat: repeat;
     //outline: 5px solid #ffffff;
     //box-shadow: 0 0 0 5px #ffffff inset;
     box-shadow: 0 5px 0 0 #ffffff inset, 5px 0 0 0 #ffffff inset, -5px 0 0 0 #ffffff inset;
-    background-image: url('img/bg-prices-item.png');
-    background-repeat: repeat;
-    transition: transform 0.5s;
+
+    flex-shrink: 0;
+    flex-grow: 0;
+
     &:hover {
       transform: scale(1.1);
     }
+
     &:last-child {
       margin-right: 0;
     }
+
     &:first-child .prices-btn {
       background-color: #e1a4a4;
     }
+
     &:nth-child(2) .prices-btn {
       background-color: #afd2d5;
     }
   }
+
   .triangle-container {
     position: absolute;
     bottom: 0;
+
     overflow: hidden;
+
     width: 100%;
     height: 80px;
-    overflow: hidden;
-    background-color: transparent;
+
     transform: translate(0, 100%);
+
+    background-color: transparent;
+
     .triangle {
       //content: '';
       display: block;
+      overflow: hidden;
+
       width: 100%;
       height: 280px;//equal to width
-      background-color: #eef1ec;
+
+      transform: rotate(157.5deg) skewX(45deg) scaleY(0.7071) translate(-88%, 88%);
+
       border: 5px solid #ffffff;
-      overflow: hidden;
-      transform: rotate(157.5deg) skewX(45deg) scaleY(0.7071) translate(-88%, 88%); //romb scaleY = cos45
-      &:after {
-        content: '';
+      background-color: #eef1ec;
+
+      //romb scaleY = cos45
+      &::after {
         position: absolute;
+
         width: 100%;
         height: 100%;
-        background-image: url('img/bg-prices-item.png');
-        background-repeat: repeat;
+
+        content: "";
         transform: scaleY(1.4) skewX(-45deg) rotate(-157.5deg); //romb
+
+        background-image: url("img/bg-prices-item.png");
+        background-repeat: repeat;
       }
     }
   }
+
   .prices-item-img {
     position: absolute;
-    width: 176px;
-    height: 176px;
     top: 0;
     left: 50%;
-    transform: translate(-50%,-50%);
+
+    width: 176px;
+    height: 176px;
+
     font-size: 0;
+
+    transform: translate(-50%, -50%);
+
     &:hover {
       img {
         transform: rotate(360deg);
       }
     }
+
     img {
       transition: transform 0.5s;
     }
   }
+
   .prices-item-value {
     position: relative;
-    padding-left: 35px;
+
     padding-right: 30px;
-    text-align: center;
-    font-family: 'Lobster13', Arial, sans-serif;
+    padding-left: 35px;
+
+    font-family: "Lobster13", "Arial", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-image: url('img/ribbon.png');
-    background-repeat: repeat;
-    background-origin: border-box;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
+
+    text-align: center;
+
     border-top: 6px solid transparent;
+    border-right: 4px solid transparent;
     border-bottom: 6px solid transparent;
-    border-image: url('img/points-for-border-new.png');
-    border-image-repeat: space;
+    border-left: 4px solid transparent;
+    border-image: url("img/points-for-border-new.png");
     /* border-image-slice: top right bottom left */
     border-image-slice: 6 4 6 4;
+    border-image-repeat: space;
+    background-image: url("img/ribbon.png");
+    background-repeat: repeat;
+    background-origin: border-box;
+
     .price-value {
       font-size: 3rem;
+
       color: #ffffff;
       text-shadow: 3px 3px 0 rgba(111, 176, 167, 0.9);
-      &:after {
-        content: ' - ';
+
+      &::after {
+        content: " - ";
       }
     }
+
     .item-name {
       font-size: 2rem;
+
       color: #646464;
     }
   }
+
   .prices-item-text {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+
     padding: 20px 30px;
-    font-family: 'Oswald', Arial, sans-serif;
+
+    font-family: "Oswald", "Arial", sans-serif;
     font-size: 1.7rem;
     font-weight: 300;
     font-style: normal;
     line-height: 2.7rem;
-    color: #b4b2b2;
+
     text-align: center;
+
+    color: #b4b2b2;
+
+    flex-grow: 1;
+
     p:first-of-type {
       margin-top: 0;
     }
   }
+
   .prices-item-features {
     margin: 0;
     padding-left: 17px;
+
     list-style: none;
+
     color: #908f8f;
+
     li {
       position: relative;
+
       padding: 8px 0;
       padding-left: 18px;
+
       border-bottom: 1px solid #b4b4b4;
+
       &:last-child {
         border: none;
       }
-      &:before {
-        content: '';
+
+      &::before {
         position: absolute;
-        left: 0;
         top: 15px;
+        left: 0;
+
         width: 9px;
         height: 8px;
-        background-image: url('img/star.png');
+
+        content: "";
+
+        background-image: url("img/star.png");
         background-size: 9px auto;
         //transform: translateY(-50%);
       }
     }
   }
+
   .prices-btn {
     margin-top: auto;
-    margin-bottom: 26px;
     margin-right: auto;
+    margin-bottom: 26px;
     margin-left: auto;
-    font-family: 'Lobster13', Arial, sans-serif;
+
+    font-family: "Lobster13", "Arial", sans-serif;
     font-size: 1.7rem;
     font-weight: 400;
     font-style: normal;
-    color: #ffffff;
+
     text-transform: capitalize;
+
+    color: #ffffff;
   }
+
   .anchor-container-top {
-    @include anchors('top',#91b8b4,#ffffff,#fbfcfc,#bed4d2);
+    @include anchors("top",#91b8b4,#ffffff,#fbfcfc,#bed4d2);
   }
+
   .anchor-container-bottom {
-    @include anchors('bottom',#fbfcfc,#bed4d2,#91b8b4,#ffffff);
+    @include anchors("bottom",#fbfcfc,#bed4d2,#91b8b4,#ffffff);
   }
 }
 
@@ -206,12 +281,14 @@
   .prices-list {
     flex-wrap: wrap;
   }
+
   .sweetcake-prices {
     .prices-item {
-      flex-basis: 100%;
-      margin-left: 0;
       margin-right: 0;
       margin-bottom: 100px;
+      margin-left: 0;
+
+      flex-basis: 100%;
     }
   }
 }
