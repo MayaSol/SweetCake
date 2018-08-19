@@ -23,19 +23,7 @@
     background-size: 580px auto;
 
     @include container;
-
-    &::after {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-
-      width: 580px;
-      height: 44px;
-
-      content: "";
-      transform: translateX(-50%);
-    }
-  }
+}
 
   .menu-socials-menu-container {
     display: flex;

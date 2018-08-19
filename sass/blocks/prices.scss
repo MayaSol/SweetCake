@@ -4,7 +4,6 @@
   background-image: url("img/bg-blue.png");
   background-repeat: repeat;
 
-  //  border-top: 1px solid transparent;
   .prices-title {
     @include section-title(#ffffff, rgba(111, 176, 167, 0.9));
   }
@@ -14,8 +13,8 @@
 
     margin-bottom: 30px;
 
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
+    padding-top: 1px;
+    padding-bottom: 1px;
 
     @include container;
 
@@ -61,8 +60,6 @@
 
     background-image: url("img/bg-prices-item.png");
     background-repeat: repeat;
-    //outline: 5px solid #ffffff;
-    //box-shadow: 0 0 0 5px #ffffff inset;
     box-shadow: 0 5px 0 0 #ffffff inset, 5px 0 0 0 #ffffff inset, -5px 0 0 0 #ffffff inset;
 
     flex-shrink: 0;
@@ -167,7 +164,6 @@
     border-bottom: 6px solid transparent;
     border-left: 4px solid transparent;
     border-image: url("img/points-for-border-new.png");
-    /* border-image-slice: top right bottom left */
     border-image-slice: 6 4 6 4;
     border-image-repeat: space;
     background-image: url("img/ribbon.png");
@@ -247,7 +243,6 @@
 
         background-image: url("img/star.png");
         background-size: 9px auto;
-        //transform: translateY(-50%);
       }
     }
   }

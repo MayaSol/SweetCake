@@ -28,7 +28,6 @@ if ( $the_query->have_posts() ) :
 
 ?>
 
-
   <div class='works-list'>
 
 <?php
@@ -40,25 +39,23 @@ if ( $the_query->have_posts() ) :
       $terms_classes = swcake_term_classes($terms);
       $terms_all = $terms_all . $terms_classes;
 ?>
-  <article class='works-item<?php echo $terms_classes ?>'>
-    <div class='works-item-img-wrapper'>
-      <div class='works-item-img'>
-        <?php the_post_thumbnail('works-item-thumb'); ?>
-      </div>
-    </div>
-    <div class='work-item-desc'>
-      <h3 class='work-item-title'>
-        <?php the_title();?>
-      </h3>
-      <div class='work-item-text'>
-        <?php the_content();?>
-      </div>
-    </div>
+      <article class='works-item<?php echo $terms_classes ?>'>
+        <div class='works-item-img'>
+          <?php echo swcake_card_works_thumb($post,'card-works'); ?>
+        </div>
+        <div class='work-item-desc'>
+          <h3 class='work-item-title'>
+            <?php the_title();?>
+          </h3>
+          <div class='work-item-text'>
+            <?php the_content();?>
+          </div>
+        </div>
 
-  </article>
+      </article>
 
 <?php
-  endwhile;
+    endwhile;
 
 endif;
 ?>

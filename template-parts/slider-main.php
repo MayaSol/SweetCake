@@ -16,7 +16,6 @@
         'post_name__in'  => ['slider-main'],
         'post-status'    => 'published',
         'posts_per_page' => 1,
-//        'fields'         => 'ids',
         ];
         $slider = get_posts( $slider_args );
 
@@ -31,9 +30,11 @@
 
         if ( $images = get_children( $images_args ) ) {
           foreach( $images as $key=>$image ) {
-            echo '<div class="slider-main-item">
-                <image width="100%" height="500" src="' .
-                wp_get_attachment_url( $image->ID ) . '"></image>' .
+            echo '<div class="slider-main-item">' .
+            wp_get_attachment_image( $image->ID, 'slider-main-large') .
+
+/*                <image width="100%" src="' .
+                wp_get_attachment_url( $image->ID ) . '"></image>' .*/
                 '<h2>' . $image->post_title . '</h2>' .
             '</div>';
           }

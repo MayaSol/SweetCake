@@ -42,7 +42,7 @@ if ( ! function_exists( 'sweetcake_setup' ) ) :
      */
     add_theme_support( 'post-thumbnails' );
 
-    add_image_size( 'works-thumb', 558, 368, true );
+    add_image_size( 'card-works', 300, 200, true );
 
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
@@ -120,6 +120,17 @@ function sweetcake_widgets_init() {
 }
 add_action( 'widgets_init', 'sweetcake_widgets_init' );
 
+
+/**
+ * Add custom image sizes
+ **/
+
+if ( function_exists( 'add_image_size' ) ) {
+  add_image_size( 'slider-main-large', 1280, 9999 );
+  add_image_size( 'slider-main-small', 560, 9999 );
+//  add_image_size( 'homepage-thumb', 220, 180, array ); // Кадрирование изображения
+}
+
 /**
  * Enqueue scripts and styles.
  */
@@ -129,6 +140,8 @@ function sweetcake_scripts() {
   wp_enqueue_style( 'owl-carousel-style', get_template_directory_uri() . '/node_modules/owl.carousel/dist/assets/owl.carousel.min.css' );
 
   wp_enqueue_style( 'leaflet', get_template_directory_uri() . '/node_modules/leaflet/dist/leaflet.css' );
+
+  wp_enqueue_script( 'picturefill', get_template_directory_uri() . '/js/picturefill.min.js' );
 
   wp_enqueue_script( 'leaflet', get_template_directory_uri() . '/node_modules/leaflet/dist/leaflet.js' );
 

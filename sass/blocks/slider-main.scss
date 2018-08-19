@@ -12,9 +12,12 @@
   height: 500px;
 
   img {
-    object-position: left bottom;
+    //object-position: left bottom;
     //object-fit: none;
-  }
+    object-fit: cover;
+    object-position: 50% 50%;
+    height: 500px;
+    width: auto;  }
 
   h2 {
     position: absolute;
@@ -90,6 +93,11 @@
 
     h2 {
       font-size: 2rem;
+    }
+
+    img {
+      height: 250px;
+
     }
   }
 }

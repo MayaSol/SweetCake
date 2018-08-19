@@ -248,3 +248,21 @@ if ( ! function_exists( 'sweetcake_map_contacts' ) ) :
     }
 
 endif;
+
+
+
+if ( ! function_exists( 'swcake_card_works_thumb' ) ) :
+  /**
+   * Returns html for image in work cards with src, width, height, without srcset.
+   *
+   */
+  function swcake_card_works_thumb($post, $size) {
+
+    $post_thumbnail_id = get_post_thumbnail_id( $post );
+    $image = wp_get_attachment_image_src($post_thumbnail_id, $size);
+    $img_html = '<img src = "' . $image[0] . '" width = ' . $image[1] . ' height = ' . $image[2] . '></img>';
+
+    return $img_html;
+  }
+
+endif;
