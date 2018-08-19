@@ -159,6 +159,10 @@ function sweetcake_scripts() {
 
   wp_enqueue_script( 'isotope-settings', get_template_directory_uri() . '/js/isotope-settings.js', array(), '20180708', true );
 
+  wp_enqueue_script( 'object-fit-images', get_template_directory_uri() . '/node_modules/object-fit-images/dist/ofi.min.js', array(), '20180819', true );
+
+  wp_enqueue_script( 'object-fit-polyfill', get_template_directory_uri() . '/js/object-fit-polyfill.js', array(), '20180819', true );
+
   //wp_enqueue_script( 'map-marker', get_template_directory_uri() . '/js/map-marker.js', array(), '20180724', true );
 }
 
