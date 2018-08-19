@@ -85,7 +85,7 @@
      minWidth: 380,
      closeButton: false,
      closeOnClick: false
-    },
+    }
     ).openPopup();
 
   /*L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWF5YXNvbCIsImEiOiJjamp3dWF6OGQwc21kM3Ftazc3am5jb3MwIn0.pJ3_sExs34qtkQb9YaJ_Rg', */
