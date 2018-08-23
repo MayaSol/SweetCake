@@ -47,21 +47,17 @@
 </script>
 
 <script>
-  var mymap = L.map('sweetcake-map',{scrollWheelZoom: false, doubleClickZoom: false}).setView([40.7793, -73.959], 18);
-  var siteUrl = '<?= get_bloginfo('template_url'); ?>';
+    var mymap = L.map('sweetcake-map',{scrollWheelZoom: false, doubleClickZoom: false}).setView([40.7793, -73.959], 18);
+  var siteUrl = '<?php get_bloginfo("template_url"); ?>';
+  console.log(siteUrl);
+  var mapContacts = '<?php sweetcake_map_contacts(); ?>';
+  console.log(mapContacts);
   var markerIcon = L.divIcon({
     className: 'map-marker-icon',
     iconSize: [57, 57],
     html: '<div class="marker-icon-wrapper"></div>',
-    //iconAnchor: [27, 27]
     popupAnchor: [0, -24],
   });
-  /*var markerIcon = L.icon({
-    iconUrl: siteUrl + '/img/mapmarker.png',
-    iconSize: [57, 57],
-    //iconAnchor: [27, 27]
-    popupAnchor: [0, -24],
-});*/
   var marker = L.marker([40.7783, -73.959],{icon: markerIcon}).addTo(mymap);
   marker.bindPopup('SweetCake');
   var markerIcon = marker._icon;
@@ -79,7 +75,7 @@
       markerIcon.classList.add('closed');
     }
   });
-  marker.bindPopup('<?= sweetcake_map_contacts(); ?>',
+  marker.bindPopup(mapContacts,
     {className: 'sweetcake-map-popup',
      maxWidth: 380,
      minWidth: 380,
@@ -88,14 +84,14 @@
     }
     ).openPopup();
 
-  /*L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWF5YXNvbCIsImEiOiJjamp3dWF6OGQwc21kM3Ftazc3am5jb3MwIn0.pJ3_sExs34qtkQb9YaJ_Rg', */
   L.tileLayer('https://api.mapbox.com/styles/v1/mayasol/cjjy8fi9h0js52slkbij1jsa0/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF5YXNvbCIsImEiOiJjamp3dWF6OGQwc21kM3Ftazc3am5jb3MwIn0.pJ3_sExs34qtkQb9YaJ_Rg',
     {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'your.mapbox.access.token'
-}).addTo(mymap);
+  }).addTo(mymap);
 </script>
+
 
 </body>

@@ -20,14 +20,13 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> itemscope itemtype='http://schema.org/Organization'>
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'sweetcake' ); ?></a>
 
     <header id="masthead" class="site-header">
 
         <nav id="site-navigation" class="main-navigation">
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'sweetcake' ); ?></button>
             <?php
             wp_nav_menu( array(
                 'theme_location' => 'header-left',

@@ -135,19 +135,18 @@ if ( function_exists( 'add_image_size' ) ) {
  * Enqueue scripts and styles.
  */
 function sweetcake_scripts() {
-  wp_enqueue_style( 'sweetcake-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'sweetcake-style', get_stylesheet_directory_uri() . '/style.min.css' );
 
   wp_enqueue_style( 'owl-carousel-style', get_template_directory_uri() . '/node_modules/owl.carousel/dist/assets/owl.carousel.min.css' );
 
   wp_enqueue_style( 'leaflet', get_template_directory_uri() . '/node_modules/leaflet/dist/leaflet.css' );
 
-  wp_enqueue_script( 'picturefill', get_template_directory_uri() . '/js/picturefill.min.js' );
+  wp_enqueue_script( 'picturefill', get_template_directory_uri() . '/js-min/picturefill.min.js' );
 
   wp_enqueue_script( 'leaflet', get_template_directory_uri() . '/node_modules/leaflet/dist/leaflet.js' );
 
-  wp_enqueue_script( 'sweetcake-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+//  wp_enqueue_script( 'sweetcake-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-  wp_enqueue_script( 'sweetcake-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
     wp_enqueue_script( 'comment-reply' );
@@ -157,13 +156,14 @@ function sweetcake_scripts() {
 
   wp_enqueue_script( 'isotope-script', get_template_directory_uri() . '/node_modules/isotope-layout/dist/isotope.pkgd.min.js', array(), null, true);
 
-  wp_enqueue_script( 'isotope-settings', get_template_directory_uri() . '/js/isotope-settings.js', array(), '20180708', true );
-
   wp_enqueue_script( 'object-fit-images', get_template_directory_uri() . '/node_modules/object-fit-images/dist/ofi.min.js', array(), '20180819', true );
 
-  wp_enqueue_script( 'object-fit-polyfill', get_template_directory_uri() . '/js/object-fit-polyfill.js', array(), '20180819', true );
+  wp_enqueue_script( 'isotope-settings', get_template_directory_uri() . '/js-min/isotope-settings.min.js', array(), '20180708', true );
 
-  //wp_enqueue_script( 'map-marker', get_template_directory_uri() . '/js/map-marker.js', array(), '20180724', true );
+  wp_enqueue_script( 'sweetcake-skip-link-focus-fix', get_template_directory_uri() . '/js-min/skip-link-focus-fix.min.js', array(), '20151215', true );
+
+  wp_enqueue_script( 'object-fit-polyfill', get_template_directory_uri() . '/js-min/object-fit-polyfill.min.js', array(), '20180819', true );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'sweetcake_scripts' );

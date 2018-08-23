@@ -41,7 +41,7 @@ if ( $the_query->have_posts() ) :
 ?>
       <article class='works-item<?php echo $terms_classes ?>'>
         <div class='works-item-img'>
-          <?php echo swcake_card_works_thumb($post,'card-works'); ?>
+          <?php echo swcake_post_thumbnail($post,'card-works'); ?>
         </div>
         <div class='work-item-desc'>
           <h3 class='work-item-title'>

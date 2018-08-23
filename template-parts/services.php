@@ -40,7 +40,7 @@
       <article class="sweetcake-services-item item-services">
         <div class="item-services-img">
 <?php
-            the_post_thumbnail();
+            echo swcake_post_thumbnail($post);
 ?>
         </div>
         <div class="item-services-content">
